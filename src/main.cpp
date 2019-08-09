@@ -1,7 +1,13 @@
-#include <iostream>
+#include "Game.h"
 
-int main(int argc, const char *argv[])
+int main(int argc, char** argv)
 {
-  std::cout << "hello Visual Studio Code! :)" << '\n';
-  return 0;
+	Game game;
+	bool success = game.Initialize();
+	if (success)
+	{
+		game.RunLoop();
+	}
+	game.Shutdown();
+	return 0;
 }
