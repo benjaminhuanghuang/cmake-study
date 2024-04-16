@@ -1,0 +1,6 @@
+add_subdirectory(SDL)
+
+
+add_library(vender INTERFACE)
+
+target_link_libraries(vender INTERFACE SDL3::SDL3)
