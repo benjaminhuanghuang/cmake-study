@@ -17,8 +17,8 @@ int main()
         return 1;
     }
 
-    SDL_Renderer *ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-    if (ren == nullptr)
+    SDL_Renderer *renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    if (renderer == nullptr)
     {
         SDL_DestroyWindow(win);
         std::cerr << "SDL_CreateRenderer Error: " << SDL_GetError() << std::endl;
@@ -26,37 +26,21 @@ int main()
         return 1;
     }
 
-    SDL_Surface *bmp = SDL_LoadBMP("hello.bmp");
-    if (bmp == nullptr)
+    while (true)
     {
-        SDL_DestroyRenderer(ren);
-        SDL_DestroyWindow(win);
-        std::cerr << "SDL_LoadBMP Error: " << SDL_GetError() << std::endl;
-        SDL_Quit();
-        return 1;
+        SDL_Event event;
+        if (SDL_PollEvent(&event))
+        {
+            if (event.type == SDL_QUIT)
+            {
+                break;
+            }
+        }
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+        SDL_RenderClear(renderer);
+        SDL_RenderPresent(renderer);
     }
-
-    SDL_Texture *tex = SDL_CreateTextureFromSurface(ren, bmp);
-    SDL_FreeSurface(bmp);
-    if (tex == nullptr)
-    {
-        SDL_DestroyRenderer(ren);
-        SDL_DestroyWindow(win);
-        std::cerr << "SDL_CreateTextureFromSurface Error: " << SDL_GetError() << std::endl;
-        SDL_Quit();
-        return 1;
-    }
-
-    for (int i = 0; i < 3; ++i)
-    {
-        SDL_RenderClear(ren);
-        SDL_RenderCopy(ren, tex, NULL, NULL);
-        SDL_RenderPresent(ren);
-        SDL_Delay(1000);
-    }
-
-    SDL_DestroyTexture(tex);
-    SDL_DestroyRenderer(ren);
+    SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(win);
     SDL_Quit();
 

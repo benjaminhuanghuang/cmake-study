@@ -1,4 +1,4 @@
-# 利用 SDL2、CMake 制作一款跨平台的太空战机的游戏
+# 【C++游戏开发之旅】利用 SDL2、CMake 制作一款跨平台的太空战机的游戏
 
 https://www.bilibili.com/video/BV19CCHYNEvQ/
 
