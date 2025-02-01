@@ -1,11 +1,11 @@
+# VSCode + CMake
 
 ## Install Extension
-- CMake 
-Provide intellisense and syntax highlight
+
+- CMake
+  Provide intellisense and syntax highlight
 
 - CMake Tools
-Support CMake in editor
-
+  Support CMake in editor
 
 ## Config CMake in VSCode
-
