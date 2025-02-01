@@ -3,3 +3,6 @@ build-gcc
 build-gnu
 *.o
 *.exe
+bin
+debug
+release
