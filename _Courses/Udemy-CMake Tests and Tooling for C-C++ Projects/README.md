@@ -4,6 +4,8 @@ https://www.udemy.com/course/cmake-tests-and-tooling-for-cc-projects/
 
 https://www.bilibili.com/video/BV1PSc3eAEWD
 
+https://github.com/franneck94/UdemyCmake
+
 ## Table of content
 
 Introduction
