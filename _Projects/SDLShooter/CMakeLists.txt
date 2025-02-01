@@ -13,6 +13,7 @@ endif()
 
 ## output directory
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR})
+## file name for the executable
 set(TARGET ${PROJECT_NAME}-${CMAKE_SYSTEM_NAME})
 
 find_package(SDL2 REQUIRED)
@@ -21,4 +22,4 @@ add_executable(${TARGET}
     main.cpp
 )
 
-target_link_libraries(${TARGET} PRIVATE SDL2::SDL2 SDL2::SDL2main)
+target_link_libraries(${TARGET} ${SDL2_LIBRARIES})
